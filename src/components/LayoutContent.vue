@@ -1,10 +1,5 @@
 <template>
   <div>
-    <header>
-      <div class="inner">
-        <h1>TODO LIST<span>use: Vue-Cli, TypeScript, LocalStorage, Netlify</span></h1>
-      </div>
-    </header>
     <div class="contents inner">
       <div class="todo_menu">
         <input type="text" placeholder="Put Your ToDo" v-model.trim="todoTitle" />
@@ -28,7 +23,6 @@
         </li>
       </ul>
     </div>
-    <footer>@ {{ copyDate }} MyToDo</footer>
   </div>
 </template>
 
@@ -37,9 +31,8 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "LayoutContent",
-  data: function(): { copyDate: number; todoTitle: string; todos: any[]; checks: boolean } {
+  data: function(): { todoTitle: string; todos: any[]; checks: boolean } {
     return {
-      copyDate: 0,
       todoTitle: "",
       todos: [],
       checks: true,
@@ -80,12 +73,8 @@ export default defineComponent({
         this.todos = [];
       }
     },
-    getYear: function() {
-      this.copyDate = new Date().getFullYear();
-    },
   },
   mounted: function() {
-    this.getYear();
     this.loadTodo();
     //localStorage.removeItem("todos");
   },
