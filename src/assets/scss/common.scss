@@ -1,0 +1,210 @@
+@mixin sp {
+  @media screen and(max-width:480px) {
+    @content;
+  }
+}
+@mixin pc {
+  @media screen and(max-width:1024px) {
+    @content;
+  }
+}
+
+//color
+$white: #fff;
+$mint: #42b984;
+$gray: #ccc;
+$l-gray: #f7f7f7;
+$black: #273849;
+$sumi: #475050;
+
+html {
+  font-size: 62.5%;
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+  color: $black;
+  @include pc {
+    font-size: 50%; //8px
+  }
+}
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+button {
+  transition: all ease-in-out 0.3s;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+input[type="text"]::placeholder {
+  color: $gray;
+}
+//header
+header {
+  width: 100%;
+  background: $mint;
+  @include sp {
+    padding: 8px;
+  }
+  .inner {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    h1 {
+      font-size: 3.2rem;
+      font-weight: bold;
+      color: $white;
+      letter-spacing: 0.3rem;
+      span {
+        font-size: 1.2rem;
+        font-weight: normal;
+        margin-left: 8px;
+        letter-spacing: 0;
+        @include sp {
+          margin: 8px 0 0 0;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+//contents
+.contents {
+  min-height: 90vh;
+  padding: 64px 24px;
+  @include sp {
+    padding: 40px 16px;
+  }
+  .todo_menu {
+    display: flex;
+    justify-content: space-between;
+    input[type="text"] {
+      width: 100%;
+      padding: 16px 24px;
+      border: 1px solid $gray;
+      border-radius: 40px;
+      font-size: 2rem;
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px $mint;
+      }
+    }
+    button {
+      appearance: none;
+      border: none;
+      padding: 8px 48px;
+      white-space: nowrap;
+      color: $white;
+      background: $mint;
+      border-radius: 40px;
+      font-size: 1.6rem;
+      margin-left: 8px;
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px $mint;
+      }
+      @include sp {
+        padding: 8px 32px;
+      }
+    }
+  }
+  .todo_heading {
+    padding: 16px 24px;
+    margin-top: 32px;
+    display: flex;
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: $gray;
+      &:nth-of-type(1) {
+        width: 5%;
+      }
+      &:nth-of-type(2) {
+        width: 75%;
+      }
+      &:nth-of-type(3) {
+        width: 10%;
+      }
+      &:nth-of-type(4) {
+        width: 10%;
+      }
+    }
+  }
+  .todo_list {
+    @include sp {
+      margin-top: 32px;
+    }
+    &__id {
+      width: 5%;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    &__title {
+      width: 75%;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    &__buttons {
+      width: 20%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    button {
+      appearance: none;
+      border: none;
+      padding: 8px 16px;
+      white-space: nowrap;
+      color: $mint;
+      background: $white;
+      border: 1px solid $mint;
+      border-radius: 40px;
+      font-size: 1.4rem;
+      margin-left: 8px;
+      &.done {
+        background: $gray;
+        color: $white;
+        border-color: $gray;
+      }
+      &.delete {
+        background: $gray;
+        color: $white;
+        border-color: $gray;
+      }
+    }
+    li {
+      border: 1px solid $gray;
+      border-top: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input[type="checkbox"] {
+        transform: scale(1.5);
+        margin: -1px 16px 0 0;
+      }
+      &:first-of-type {
+        border-top: 1px solid $gray;
+      }
+      &.done {
+        background: $l-gray;
+        color: $gray;
+      }
+    }
+  }
+}
+
+//footer
+footer {
+  background: $sumi;
+  color: $white;
+  text-align: center;
+  padding: 16px;
+  font-size: 1.2rem;
+}
