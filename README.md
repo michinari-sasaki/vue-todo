@@ -1,24 +1,28 @@
 # vue-todo
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 概要
+Vue-Cli  
+TypeScript  
+LocalStorage  
+Netlify  
+を使用してToDoアプリを作成しました。
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## 公開URL
+https://unruffled-nobel-1b3713.netlify.app/
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## 使い方
+・inputに追加したいToDoを記入追加でします。
+・完了したタスクは完了と作業中で切り替え可能です。
+
+
+## 実行
+`npm install`
+
+`npm run serve`
+
+
+## 補足
+
